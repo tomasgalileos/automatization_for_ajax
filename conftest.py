@@ -1,0 +1,1 @@
+import pytestfrom unittest.mock import patchfrom scanner_handler import CheckQr@pytest.fixturedef check_qr():    return CheckQr()@pytest.fixturedef mock_check_in_db():    with patch('scanner_handler.CheckQr.check_in_db') as mock:        mock.side_effect = ConnectionError        yield mock
